@@ -1,0 +1,34 @@
+.launches{
+    box-shadow: 2px 3px 5px #222;
+    padding: 20px;
+    transition: ease-in 0.4s;
+    cursor: pointer;
+}
+
+.launches:hover{
+    background-color: #212122;
+}
+
+hr{
+    border: 1px solid #777
+}
+
+.launch_list p{
+    color: #999
+}
+
+.launchName{
+    font-size: 25px;
+}
+
+.success {
+    color: #0d0;
+}
+
+.failed {
+    color: #d00
+}
+
+.upcoming{
+    color: orangered
+}

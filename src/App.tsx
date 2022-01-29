@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Launches from './components/Launches'
+import LaunchInfo from './components/LaunchInfo'
+import Container from '@material-ui/core/Container'
+
 
 function App() {
+
+  const [selected, setSelected] = useState(false)
+  const [id, setId] = useState(0)
+
+  const handleIdChange = React.useCallback(
+    (newId) => {
+      setId(newId)
+      setSelected(true)
+    },
+    [],
+  )
+
+  const handleBackBtn = React.useCallback(
+    () => {
+      setSelected(false)
+    },
+    [],
+  )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Container maxWidth="md">
+          <h1>Space X Flights</h1>
+          { selected ? <LaunchInfo id={id} handleBackBtn={handleBackBtn} />: <Launches handleIdChange={handleIdChange} />}  
+          </Container> 
   );
 }
 
